@@ -12,8 +12,30 @@ class Pelicula:
         self.id = id
         self.nombre = nombre
 
+        
+class Funcion:
+    def _init__(self, id, hora, minuto):
+        self.id = id
+        self.hora = hora
+        self.minuto = minuto
+
+        def ingresar_Funcion(self, funcion):
+            self.funciones[funcion.id]= funcion
+            
+
 class Cine:
-    def __init__(self, nombre)
+    def __init__(self):
+        self.lista_peliculas = {}
+        
+        def listar_peliculas(self):
+            return self.lista_peliculas
+
+        def listar_funciones(self, pelicula_id):
+            return self.lista_peliculas[int(pelicula_id)].funciones      
+
+        def guardar_entrada(self, Entrada):
+            return self.listar_entradas(entrada.pelicula_id, entrada.funcion_id)
+
 
 class CinePlaneta:
     def __init__(self):
