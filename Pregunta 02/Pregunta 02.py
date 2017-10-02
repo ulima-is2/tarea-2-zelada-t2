@@ -1,7 +1,8 @@
 import sys
 
 class Entrada:
-    def __init__(self, pelicula_id, funcion, cantidad):
+    def __init__(self, entrada_id, pelicula_id, funcion, cantidad):
+        self.entrada_id = entrada_id
         self.pelicula_id = pelicula_id
         self.funcion = funcion
         self.cantidad = cantidad
@@ -11,6 +12,8 @@ class Pelicula:
         self.id = id
         self.nombre = nombre
 
+class Cine:
+    def __init__(self, nombre)
 
 class CinePlaneta:
     def __init__(self):
@@ -113,10 +116,13 @@ def main():
                 cine = CineStark()
 
             peliculas = cine.listar_peliculas()
+            
             for pelicula in peliculas:
                 print("{}. {}".format(pelicula.id, pelicula.nombre))
             pelicula_elegida = input('Elija pelicula:')
+            
             #pelicula = obtener_pelicula(id_pelicula)
+            
             print('Ahora elija la función (debe ingresar el formato hh:mm): ')
             for funcion in cine.listar_funciones(pelicula_elegida):
                 print('Función: {}'.format(funcion))
