@@ -14,7 +14,7 @@ Se deben crear clases Bases de las cuales se debe extender las demas para modifi
 Como es el caso de la clase `CinePlaneta` y `CineStark`. Modificar una funcionalidad en el codigo conlleva a serie de cambios en modulos dependientes y esto afecta negativamente el codigo si se encuentra muy acoplado.
 
 
-##Interface Segregation
+## Interface Segregation
 
 Es recomendable usar muchas interfaces pequeñas en vez de una muy grande
 
