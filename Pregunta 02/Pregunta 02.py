@@ -10,14 +10,14 @@ class Entrada:
 class Pelicula:
 	instancia = None
 	def __init__(self, id, nombre):
-        self.id = id
-        self.nombre = nombre
+            self.id = id
+            self.nombre = nombre
 		
-    @classmethod
-    def get_instance(cls):
-        if cls.instancia == None:
-            cls.instancia = Singleton()
-        return cls.instancia
+@classmethod
+def get_instance(cls):
+    if cls.instancia == None:
+        cls.instancia = Singleton()
+    return cls.instancia
 		
     
 
@@ -62,22 +62,22 @@ class CinePlaneta:
         peliculaD = Pelicula.get_instance
         peliculaDeep = Pelicula.get_instance
 		
-		peliculaIT.id = 1
-		peliculaIT.nombre = 'IT'
-		peliculaHF.id = 2
-		peliculaHF.nombre = 'La hora Final'
-		peliculaD.id = 3
-		peliculaD.nombre = 'Desaparecido'
-		peliculaDeep.id = 4
-		peliculaDeep.nombre = 'Deep el pulpo'
+    peliculaIT.id = 1
+    peliculaIT.nombre = 'IT'
+    peliculaHF.id = 2
+    peliculaHF.nombre = 'La hora Final'
+    peliculaD.id = 3
+    peliculaD.nombre = 'Desaparecido'
+    peliculaDeep.id = 4
+    peliculaDeep.nombre = 'Deep el pulpo'
+    
+    peliculaIT.funciones = ['19:00', '20.30', '22:00']
+    peliculaHF.funciones = ['21:00']
+    peliculaD.funciones = ['20:00', '23:00']
+    peliculaDeep.funciones = ['16:00']
 
-        peliculaIT.funciones = ['19:00', '20.30', '22:00']
-        peliculaHF.funciones = ['21:00']
-        peliculaD.funciones = ['20:00', '23:00']
-        peliculaDeep.funciones = ['16:00']
-
-        self.lista_peliculas = [peliculaIT, peliculaHF, peliculaD, peliculaDeep]
-        self.entradas = []
+    self.lista_peliculas = [peliculaIT, peliculaHF, peliculaD, peliculaDeep]
+    self.entradas = []
 
     
 
@@ -88,50 +88,53 @@ class CineStark:
         peliculaD = Pelicula.get_instance
         peliculaDeep = Pelicula.get_instance
 		
-		peliculaD.id = 1
-		peliculaD.nombre = 'Desparecido'
-		peliculaDeep.id = 2
-		peliculaDeep.nombre = 'Deep El Pulpo'
+    peliculaD.id = 1
+    peliculaD.nombre = 'Desparecido'
+    peliculaDeep.id = 2
+    peliculaDeep.nombre = 'Deep El Pulpo'
 
-        peliculaD.funciones = ['21:00', '23:00']
-        peliculaDeep.funciones = ['16:00', '20:00']
+    peliculaD.funciones = ['21:00', '23:00']
+    peliculaDeep.funciones = ['16:00', '20:00']
 
-        self.lista_peliculas = [peliculaD, peliculaDeep]
-        self.entradas = []
+    self.lista_peliculas = [peliculaD, peliculaDeep]
+    self.entradas = []
 
 
 class opcion_Principal:
-			def obtener_opcion(self):
-			print('Ingrese la opción que desea realizar')
-			print('(1) Listar cines')
-			print('(2) Listar cartelera')
-			print('(3) Comprar entrada')
-			print('(0) Salir')
+    
+    def obtener_opcion(self):
+	    print('Ingrese la opción que desea realizar')
+	    print('(1) Listar cines')
+	    print('(2) Listar cartelera')
+	    print('(3) Comprar entrada')
+	    print('(0) Salir')
 
 class opcion_Uno:
-			def obtener_opcion(self):
-			print('********************')
-            print('Lista de cines')
-            print('1: CinePlaneta')
-            print('2: CineStark')
-            print('********************')
+    
+    def obtener_opcion(self):
+                print('********************')
+                print('Lista de cines') 
+                print('1: CinePlaneta')
+                print('2: CineStark')
+                print('********************')
   
- class opcion_Dos:
-			def obtener_opcion(self):
-			print('********************')
-            print('Lista de cines')
-            print('1: CinePlaneta')
-            print('2: CineStark')
-            print('********************')
+class opcion_Dos:
+     
+    def obtener_opcion(self):
+                print('********************')
+                print('Lista de cines')
+                print('1: CinePlaneta')
+                print('2: CineStark')
+                print('********************')
   
- class opcion_Tres:
-			def obtener_opcion(self):
-			print('********************')
-            print('COMPRAR ENTRADA')
-            print('Lista de cines')
-            print('1: CinePlaneta')
-            print('2: CineStark')
-            print('********************')
+class opcion_Tres:
+	def obtener_opcion(self):
+                print('********************')
+                print('COMPRAR ENTRADA')
+                print('Lista de cines')
+                print('1: CinePlaneta')
+                print('2: CineStark')
+                print('********************')
 			
 			
 class OpcionFactory:
@@ -143,8 +146,9 @@ class OpcionFactory:
 			return opcion_Dos()	
 		elif opcion == '3':
 			return opcion_Tres()
-		else
+		else:
 			return opcion_Principal()
+
 
 def main():
     terminado = False;
