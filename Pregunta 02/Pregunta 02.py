@@ -33,11 +33,15 @@ class Funcion:
             
 
 class Cine:
+    
     def __init__(self):
         self.lista_peliculas = {}
         
         def listar_peliculas(self):
             return self.lista_peliculas
+
+        def Escoger_Cine(self):
+            return self.tipo_Cine
 
         def listar_funciones(self, pelicula_id):
             return self.lista_peliculas[int(pelicula_id)].funciones      
