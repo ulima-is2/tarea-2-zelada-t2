@@ -8,9 +8,18 @@ class Entrada:
         self.cantidad = cantidad
 
 class Pelicula:
-    def __init__(self, id, nombre):
+	instancia = None
+	def __init__(self, id, nombre):
         self.id = id
         self.nombre = nombre
+		
+    @classmethod
+    def get_instance(cls):
+        if cls.instancia == None:
+            cls.instancia = Singleton()
+        return cls.instancia
+		
+    
 
         
 class Funcion:
@@ -36,13 +45,31 @@ class Cine:
         def guardar_entrada(self, Entrada):
             return self.listar_entradas(entrada.pelicula_id, entrada.funcion_id)
 
+			
+class CineFactory:
+
+	def Escoger_Cine(self, tipo_Cine):
+		if tipo_Cine  == '1':
+			return CinePlaneta()
+		else:
+			return CineStark()
+
 
 class CinePlaneta:
     def __init__(self):
-        peliculaIT = Pelicula(1, 'IT')
-        peliculaHF = Pelicula(2, 'La Hora Final')
-        peliculaD = Pelicula(3, 'Desparecido')
-        peliculaDeep = Pelicula(4, 'Deep El Pulpo')
+        peliculaIT = Pelicula.get_instance
+        peliculaHF = Pelicula.get_instance
+        peliculaD = Pelicula.get_instance
+        peliculaDeep = Pelicula.get_instance
+		
+		peliculaIT.id = 1
+		peliculaIT.nombre = 'IT'
+		peliculaIT.id = 2
+		peliculaIT.nombre = 'La hora Final'
+		peliculaIT.id = 3
+		peliculaIT.nombre = 'Desaparecido'
+		peliculaIT.id = 4
+		peliculaIT.nombre = 'Deep el pulpo'
 
         peliculaIT.funciones = ['19:00', '20.30', '22:00']
         peliculaHF.funciones = ['21:00']
@@ -52,15 +79,7 @@ class CinePlaneta:
         self.lista_peliculas = [peliculaIT, peliculaHF, peliculaD, peliculaDeep]
         self.entradas = []
 
-    def listar_peliculas(self):
-        return self.lista_peliculas
-
-    def listar_funciones(self, pelicula_id):
-        return self.lista_peliculas[int(pelicula_id) - 1].funciones
-
-    def guardar_entrada(self, id_pelicula_elegida, funcion_elegida, cantidad):
-        self.entradas.append(Entrada(id_pelicula_elegida, funcion_elegida, cantidad))
-        return len(self.entradas)
+    
 
 
 
@@ -76,15 +95,7 @@ class CineStark:
         self.entradas = []
 
 
-    def listar_peliculas(self):
-        return self.lista_peliculas
-
-    def listar_funciones(self, pelicula_id):
-        return self.lista_peliculas[int(pelicula_id) - 1].funciones
-
-    def guardar_entrada(self, id_pelicula_elegida, funcion_elegida, cantidad):
-        self.entradas.append(Entrada(id_pelicula_elegida, funcion_elegida, cantidad))
-        return len(self.entradas)
+   
 
 def main():
     terminado = False;
