@@ -1,7 +1,7 @@
 import sys
 import sqlite3
 
-conn = sqlite3.connect ('la ruta') # :(
+conn = sqlite3.connect ('patrones.bd') # :(
 
 cursor = conn.cursor()
 
