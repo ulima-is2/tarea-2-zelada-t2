@@ -151,39 +151,35 @@ class OpcionFactory:
 
 
 def main():
-    terminado = False;
-	
-	cinefactory = CineFactory()
-	
-	opcionfactory = OpcionFactory()
+            terminado = False;	
+            cinefactory = CineFactory()	
+            opcionfactory = OpcionFactory()
 	
     while not terminado:
         
-		opcion = opcionfactory.obtener_opcion()
+        opcion = opcionfactory.obtener_opcion()		
+        opcion.obtener_opcion()		
+        opcion = input('Primero elija una opcion:')
 		
-		opcion.obtener_opcion()
-		
-		opcion = input('Primero elija una opcion:')
-		
-		if opcion == '1':
-			opcion = opcionfactory.obtener_opcion()
-			opcion.obtener_opcion()
+	if opcion == '1':
+	    opcion = opcionfactory.obtener_opcion()
+            opcion.obtener_opcion()
 			
-		elif opcion == '2':
-			opcion = opcionfactory.obtener_opcion()
-			opcion.obtener_opcion()
+	elif opcion == '2':
+	    opcion = opcionfactory.obtener_opcion()
+	    opcion.obtener_opcion()
 		
             cine = input('Primero elija un cine:')
             if cine == '1':
-                # CinePlaneta
-                cine = CinePlaneta()
+                    # CinePlaneta
+                    cine = CinePlaneta()
             elif cine == '2':
-                cine = CineStark()
+                    cine = CineStark()
 
             peliculas = cine.listar_peliculas()
             print('********************')
             for pelicula in peliculas:
-                print("{}. {}".format(pelicula.id, pelicula.nombre))
+                    print("{}. {}".format(pelicula.id, pelicula.nombre))
             print('********************')
 
         elif opcion == '3':
@@ -214,7 +210,7 @@ def main():
             codigo_entrada = cine.guardar_entrada(pelicula_elegida, funcion_elegida, cantidad_entradas)
             print('Se realizó la compra de la entrada. Código es {}'.format(codigo_entrada))
         
-		elif opcion == '0':
+	elif opcion == '0':
             terminado = True
         else:
             print(opcion)
